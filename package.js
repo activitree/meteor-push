@@ -7,7 +7,7 @@ Package.describe({
 })
 
 Npm.depends({
-  'apn': '2.2.0',
+  'apn': '3.0.0-alpha1',
   'firebase-admin': '6.0.0'
 })
 
