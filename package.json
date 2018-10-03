@@ -1,0 +1,20 @@
+{
+  "name": "push",
+  "version": "1.0.0",
+  "description": "Push notifications for APN and Firebase Admin (FCM)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Tests not implemented\" && exit 0",
+  },
+  "commitlint": {
+    "extends": ["@commitlint/config-conventional"]
+  },
+  "repository": "https://github.com/activitree/meteor-push-notifications",
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/activitree/meteor-push-notifications/issues"
+  },
+  "homepage": "https://github.com/activitree/meteor-push-notifications#readme",
+  "devDependencies": {}
+}
