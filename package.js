@@ -1,9 +1,9 @@
 /* globals Package, Npm, Cordova */
 Package.describe({
-  name: 'paulicles:push',
+  name: 'activitree:meteor-push-notifications',
   version: '3.3.2',
-  summary: 'Isomorphic Push notifications for APN and FCM',
-  git: 'https://github.com/paulincai/push.git'
+  summary: 'Push notifications for APN and Firebase Admin (FCM)',
+  git: 'https://github.com/activitree/meteor-push-notifications.git'
 })
 
 Npm.depends({
