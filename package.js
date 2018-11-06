@@ -12,7 +12,7 @@ Npm.depends({
 })
 
 Cordova.depends({
-  'phonegap-plugin-push': '2.2.3',
+  'phonegap-plugin-push': '2.1.2',
   'cordova-plugin-device': '2.0.2'
 })
 
@@ -24,7 +24,7 @@ Package.onUse(api => {
   api.use(['accounts-base'], ['web.cordova', 'server'], { weak: true })
 
   api.use([
-    'raix:eventstate@0.0.2',
+    'raix:eventstate@0.0.4',
     'check',
     'mongo',
     'ejson',
@@ -42,9 +42,12 @@ Package.onUse(api => {
   api.addFiles('lib/server/server.js', 'server')
   api.addFiles('lib/server/note_constructor.js', 'server')
 
-  api.mainModule('main.js')
+  // api.mainModule('main.js')
   api.export('Push')
   api.export('CordovaPush')
+
+  api.mainModule('lib/client/main.js', 'client')
+  api.mainModule('lib/server/main.js', 'server')
 
   // api.export('_matchToken', { testOnly: true })
   // api.export('checkClientSecurity', { testOnly: true })
