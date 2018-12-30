@@ -1,6 +1,6 @@
 {
   "name": "meteor-push-notifications",
-  "version": "3.3.2",
+  "version": "3.3.4",
   "description": "Push notifications for APN and FCM",
   "main": "index.js",
   "scripts": {
