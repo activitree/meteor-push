@@ -4,7 +4,10 @@ Push notifications for Meteor with latest APN for IOS and latest Firebase Admin 
 This is an almost complete re-write of RAIX:PUSH. I wanted to do a PR but ... it was already a completely different piece of software.
 Besides that, we run an up-to-date Cordova platform and at least phonegap-plugin-push@2.2.3 we know for sure that cannot run on the default Meteor because of the outdate cordova-android platform.
 
+DO NOT USE. This is under development. Client side code (methods) and documentation are missing.
+
 Documentation Updates WIP
+
 This is a package in production runnnig with the following specs:
 * Meteor 1.7.0.5
 * cordova 8.1.1
