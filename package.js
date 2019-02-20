@@ -1,14 +1,14 @@
 /* globals Package, Npm, Cordova */
 Package.describe({
   name: 'activitree:push',
-  version: '0.0.1',
+  version: '0.0.2',
   summary: 'Push notifications for APN and Firebase Admin (FCM)',
   git: 'https://github.com/activitree/meteor-push.git'
 })
 
 Npm.depends({
   'apn': '3.0.0-alpha1',
-  'firebase-admin': '6.4.0'
+  'firebase-admin': '7.0.0'
 })
 
 Cordova.depends({
@@ -31,27 +31,17 @@ Package.onUse(api => {
     'random'
   ], ['client', 'server'])
 
-  api.use('mongo', 'server')
+  // api.use('mongo', 'server')
 
   // API
-  api.addFiles('lib/client/cordova.js', ['web.cordova'])
-  api.addFiles(['lib/common/notifications.js'], ['web.cordova', 'server'])
+  // api.addFiles('lib/client/cordova.js', ['web.cordova'])
+  // api.addFiles(['lib/common/notifications.js'], ['web.cordova', 'server'])
 
   // API's
-  api.addFiles('lib/server/push.api.js', 'server')
-  api.addFiles('lib/server/server.js', 'server')
-  api.addFiles('lib/server/note_constructor.js', 'server')
+  // api.addFiles('lib/server/push.api.js', 'server')
+  // api.addFiles('lib/server/server.js', 'server')
+  // api.addFiles('lib/server/note_constructor.js', 'server')
 
-  // api.mainModule('main.js')
-  api.export('Push')
-  api.export('CordovaPush')
-
-  api.mainModule('lib/client/main.js', 'client')
-  api.mainModule('lib/server/main.js', 'server')
-
-  // api.export('_matchToken', { testOnly: true })
-  // api.export('checkClientSecurity', { testOnly: true })
-  // api.export('initPushUpdates', { testOnly: true })
-  // api.export('_replaceToken', { testOnly: true })
-  // api.export('_removeToken', { testOnly: true })
+  api.mainModule('lib/client/cordova.js', 'web.cordova')
+  api.mainModule('lib/common/notifications.js', 'server')
 })
