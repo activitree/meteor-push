@@ -1,0 +1,16 @@
+Add these script to you root Meteor project package.json so you can run different versions
+
+"scripts": {
+    "start": "meteor run --settings settings.json",
+    "start-ios": "NODE_ENV=development meteor run ios--settings settings.json",
+    "start-ios-device": "NODE_ENV=development meteor run ios-device --settings settings.json",
+    "start-ios-prod": "meteor run ios-device --settings settings.json --mobile-server https://YOURSERVER.com",
+    "start-android": "NODE_ENV=development meteor run android --settings settings.json",
+    "start-android-device": "NODE_ENV=development meteor run android-device --settings settings.json",
+    "start-android-prod": "meteor run android-device --settings settings.json --mobile-server https://YOURSERVER.com",
+    "start-both": "NODE_ENV=development meteor run ios android --settings settings.json",
+    "start-both-deivce": "NODE_ENV=development meteor run ios-device android-device --settings settings.json",
+    "start-both-prod": "meteor run ios-device android-device --settings settings.json --mobile-server https://YOURSERVER.com",
+    "standard": "standard",
+    "test": "standard"
+  }

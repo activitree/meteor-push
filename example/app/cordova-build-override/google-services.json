@@ -1,0 +1,64 @@
+// Generated with Google looks like this:
+
+{
+  "project_info": {
+    "project_number": "xxxxxxxx",
+    "firebase_url": "https://xxxxxxx.firebaseio.com",
+    "project_id": "xxxxxxx",
+    "storage_bucket": "xxxxxxxxx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:xxxxxxxxxx:android:xxxxxxxxxxx",
+        "android_client_info": {
+          "package_name": "com.xxxxxxxxxxxxxx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "xxxxxxxxxxxxx.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xxxxxxxxx",
+            "certificate_hash": "xxxxxxxxx"
+          }
+        },
+        {
+          "client_id": "xxxxxxxxxxxx.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "xxxxxxxxxxxx"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "xxxxxxxxxxxxx.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "xxxxxxxxxxxxxx.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.xxxxxxxxxxxxx"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
