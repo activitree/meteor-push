@@ -12,33 +12,12 @@ After IOS Build, go to /app/.meteor/local/cordova-build/platforms/ios and (if yo
 # Android
 On the first build it will eventually fail due to wrong/inadequate Gradle configuration. However the first build is necessary in order to build the files we are going to work with.
 
+This repo contains sample files of configurations that worked in testing. You will find the files at a similar locations to what you would expect to see in Meteor.
+
 Under /app/.meteor/local/cordova-build/platforms/android/app you need to have a google-service.json file.
 
-In ..cordova-build/platforms/android/project.properties make sure you have the latest versions or fairly new. Initially this will have generic versions or "+" versions
+In ..cordova-build/platforms/android/project.properties make sure you have the latest versions or fairly new. Initially this will have generic versions or "+" versions (see file in the repo)
 
-What worked in tests:
-
-```
-# Project target.
-target=android-27
-android.library.reference.1=CordovaLib
-android.library.reference.2=app
-cordova.system.library.1=com.google.android.gms:play-services-auth:16.0.1
-cordova.system.library.2=com.google.android.gms:play-services-identity:16.0.0
-cordova.system.library.3=com.android.support:support-v13:27.1.1
-cordova.system.library.4=me.leolin:ShortcutBadger:1.1.22@aar
-cordova.system.library.5=com.google.firebase:firebase-messaging:17.3.3
-cordova.gradle.include.1=phonegap-plugin-push/activitree-push.gradle
-cordova.gradle.include.2=cordova-plugin-meteor-webapp/activitree-build-extras.gradle
-cordova.system.library.6=com.squareup.okhttp3:okhttp:3.9.1
-cordova.gradle.include.3=cordova-android-support-gradle-release/activitree-cordova-android-support-gradle-release.gradle
-cordova.system.library.7=com.android.support:support-v4:24.1.1+
-cordova.system.library.8=com.facebook.android:facebook-android-sdk:4.40.0
-cordova.system.library.9=com.android.support:support-v4:24.1.1+
-cordova.system.library.10=com.android.support:support-v4:26.+
-cordova.system.library.11=com.android.support:appcompat-v7:26.+
-cordova.system.library.12=com.squareup.okhttp3:okhttp:3.12.0
-```
 In ..platforms/android/build.gradle and everywhere else, you can replace
 ```
 maven {
