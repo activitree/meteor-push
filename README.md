@@ -1,3 +1,8 @@
+## Prerequisites:
+
+* Create an Apple p8 certificate: https://developer.clevertap.com/docs/how-to-create-an-ios-apns-auth-key
+* Create an Firebase project and generate a google-services.json file. The Firebase project is supposed to generate a Messeging API in Google Console.
+
 meteor add activitree:push
 
 
@@ -71,11 +76,6 @@ Custom Meteor:
 * firebase-admin 6.0.0, firebase-admin 7.2.0
 * phonegap-plugin-push 2.1.2, phonegap-plugin-push 2.2.3 
 * cordova-plugin-device 2.0.2
-
-## Prerequisites:
-
-* Create an Apple p8 certificate: https://developer.clevertap.com/docs/how-to-create-an-ios-apns-auth-key
-* Create an Firebase project and generate a google-services.json file. The Firebase project is supposed to generate a Messeging API in Google Console.
 
 ## To do
 * At the time of this input, raix:eventstate@0.0.4 is expected to have an update. Raix is pending a push to Atmosphere.
