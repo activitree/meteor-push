@@ -8,7 +8,7 @@ Package.describe({
 
 Npm.depends({
   'apn': '3.0.0-alpha1',
-  'firebase-admin': '7.0.0'
+  'firebase-admin': '7.2.0'
 })
 
 Cordova.depends({
