@@ -1,4 +1,4 @@
-DO NOT USE. This is under development. Client and server side code (startup config and methods) and documentation are missing from this repo.
+This is under development. Some things are missing from this repo.
 Documentation Updates WIP
 
 # Meteor Push Notifications with APN (IOS) and Firebase Admin for Android
@@ -30,3 +30,12 @@ Presently running in production with:
 
 * Create an Apple p8 certificate: https://developer.clevertap.com/docs/how-to-create-an-ios-apns-auth-key
 * Create an Firebase project and generate a google-services.json file
+
+## To do
+* At the time of this input, raix:eventstate@0.0.4 is expected to have an update. Raix is pending the push to Atmosphere.
+* Test with 1.8.1 and the latest NPM versions contained in the repo
+* Add notifications for browser. This module has been completely removed when this package was born out of RAIX:Push. So ... need to put back browser notifications. Also check the compatibility/integration with PWA workers.
+* Review code quality and logic. The author (myself) is not an expert but ... working on it.
+* Add testing.
+* Get a partner or more for the branch and merge administration.
+
