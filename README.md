@@ -1,7 +1,7 @@
 ## Prerequisites:
 
 * Create an Apple p8 certificate: https://developer.clevertap.com/docs/how-to-create-an-ios-apns-auth-key
-* Create an Firebase project and generate a google-services.json file. The Firebase project is supposed to generate a Messeging API in Google Console.
+* Create an Firebase project and generate a google-services.json file. The Firebase project is supposed to generate a Messaging API in Google Console.(See png files in the Example folder)
 
 meteor add activitree:push
 
