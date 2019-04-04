@@ -2,8 +2,9 @@ meteor add activitree:push
 
 
 (Will add everything here and then sort out the information)
-All suggested are what worked in testing but you are free to change everything indeed.
-The Android and IOS ware succesfuly built with Meteor. I mention this because before 1.8.1 I could only build this with Android Studio.
+
+All settings suggested are what worked in testing but you are free to change everything indeed.
+The Android and IOS ware succesfuly built with Meteor. I mention this because before 1.8.1 I could only build Android with Android Studio.
 
 # IOS
 After IOS Build, go to /app/.meteor/local/cordova-build/platforms/ios and (if you use Terminal) run 'pod install'. After this, in XCode, update the IOS version for each and every pod installed.
