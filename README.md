@@ -38,4 +38,8 @@ Presently running in production with:
 * Review code quality and logic. The author (myself) is not an expert but ... working on it.
 * Add testing.
 * Get a partner or more for the branch and merge administration.
+* https://github.com/node-apn/node-apn - the "APN" node packge used here, lacks maintenace, possibly fork and update dependencies.
+* The last Production test was done with phonegap-plugin-push@2.1.2. We were stuck here due to cordova-adnroid@6.4.0 built in Meteor.Meteor 1.8.1 has moved to cordova-android 7.1+ so we can access the latest phonegap-plugin-push@2.2.3
+
+
 
