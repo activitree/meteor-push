@@ -1,5 +1,6 @@
 This is under development. Some things are missing from this repo.
 Documentation Updates WIP
+The coded is linted with Standard.
 
 # Meteor Push Notifications with APN (IOS) and Firebase Admin for Android
 This can be branched out with separate versions to run both IOS and Android via Firebase Admin.
