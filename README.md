@@ -1,7 +1,12 @@
+# Meteor Push Notifications with APN (IOS) and Firebase Admin for Android
+This can be branched out with separate versions to run both IOS and Android via Firebase Admin.
+
 ## Prerequisites:
 
 * Create an Apple p8 certificate: https://developer.clevertap.com/docs/how-to-create-an-ios-apns-auth-key
 * Create an Firebase project and generate a google-services.json file. The Firebase project is supposed to generate a Messaging API in Google Console.(See png files in the Example folder)
+* Get a firebase server account: https://stackoverflow.com/questions/40799258/where-can-i-get-serviceaccountcredentials-json-for-firebase-admin/40799378
+Or visit here: https://console.firebase.google.com/project/**YOUR_PROJECT**/settings/serviceaccounts/adminsdk
 
 meteor add activitree:push
 
@@ -56,13 +61,8 @@ In last file /android/build.gradle we change the following line to actual versio
 classpath 'com.android.tools.build:gradle:3.3.2'
 ```
 
-
-The coded is linted with Standard.
-
-# Meteor Push Notifications with APN (IOS) and Firebase Admin for Android
-This can be branched out with separate versions to run both IOS and Android via Firebase Admin.
-
 ## About:
+The coded is linted with Standard.
 This is a re-write of RAIX:PUSH.
 The coded is linted with Standard.
 
