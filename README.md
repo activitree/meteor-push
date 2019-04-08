@@ -19,6 +19,8 @@ The Android and IOS ware succesfuly built with Meteor. I mention this because be
 # IOS
 After IOS Build, go to /app/.meteor/local/cordova-build/platforms/ios and (if you use Terminal) run 'pod install'. After this, in XCode, update the IOS version for each and every pod installed.
 
+Sound files for custom notification sounds: rather short, .CAF extension and added in XCode directly under resources. When you drop them, confirm (check) "Add to targets".
+
 # Android
 On the first build it will eventually fail due to wrong/inadequate Gradle configuration. However the first build is necessary in order to build the files we are going to work with.
 
