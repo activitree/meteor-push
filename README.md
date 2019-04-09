@@ -70,12 +70,13 @@ The coded is linted with Standard.
 
 This was tested with:
 Custom Meteor:
-* Meteor 1.7.0.5, Meteor 1.8.0.1, Meteor 1.8.0.2, Meteor 1.8.1
+* Meteor 1.7.0.5, Meteor 1.8.0.1, Meteor 1.8.0.2 + cordova-phonegap-plugin-push 2.1.2 - both IOS and Android receive notif.
+* Meteor 1.8.1 + cordova-phonegap-plugin-push 2.1.2 and phonegap-plugin-push 2.2.3 fine on IOS. Android no tested.
 * cordova 8.1.1
 * cordova-ios 4.5.5
-* cordova-android 7.1.1, cordova-android 7.1.4
+* cordova-android 6.4.0, cordova-android 7.1.4
 * node-apn 2.2.0
-* firebase-admin 6.0.0, firebase-admin 7.2.0
+* firebase-admin 7.2.0
 * phonegap-plugin-push 2.1.2, phonegap-plugin-push 2.2.3 
 * cordova-plugin-device 2.0.2
 
