@@ -1,18 +1,18 @@
 /* globals Package, Npm, Cordova */
 Package.describe({
   name: 'activitree:push',
-  version: '1.0.0',
+  version: '1.0.1',
   summary: 'Push notifications for APN and Firebase Admin (FCM)',
   git: 'https://github.com/activitree/meteor-push.git'
 })
 
 Npm.depends({
   'apn': '3.0.0-alpha1',
-  'firebase-admin': '7.2.0'
+  'firebase-admin': '7.3.0'
 })
 
 Cordova.depends({
-  'phonegap-plugin-push': '2.1.2',
+  'phonegap-plugin-push': '2.2.3',
   'cordova-plugin-device': '2.0.2'
 })
 
@@ -24,7 +24,7 @@ Package.onUse(api => {
   api.use(['accounts-base'], ['web.cordova', 'server'], { weak: true })
 
   api.use([
-    'raix:eventstate@0.0.4',
+    'raix:eventstate@0.0.5',
     'check',
     'mongo',
     'ejson',
