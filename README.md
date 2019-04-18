@@ -65,8 +65,8 @@ classpath 'com.android.tools.build:gradle:3.3.2'
 
 ## About:
 The coded is linted with Standard.
+
 This is a re-write of RAIX:PUSH.
-The coded is linted with Standard.
 
 This was tested with:
 Custom Meteor:
@@ -77,11 +77,8 @@ Custom Meteor:
 * cordova-android 6.4.0, cordova-android 7.1.4
 * node-apn 2.2.0
 * firebase-admin 7.2.0
-* phonegap-plugin-push 2.1.2, phonegap-plugin-push 2.2.3 
-* cordova-plugin-device 2.0.2
 
 ## To do
-* At the time of this input, raix:eventstate@0.0.4 is expected to have an update. Raix is pending a push to Atmosphere.
 * Add notifications for browser. This module has been completely removed when this package was born out of RAIX:Push. So ... need to put back browser notifications. Also check the compatibility/integration with PWA workers.
 * Review code quality and logic. The author (myself) is not an expert but ... working on it.
 * Add testing.
