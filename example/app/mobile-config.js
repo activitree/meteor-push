@@ -82,12 +82,11 @@ App.configurePlugin('cordova-plugin-googleplus', {
   'REVERSED_CLIENT_ID': 'com.googleusercontent.apps.xxxxxxxxxxxxxxxx'
 })
 
-//****************** Start of relevance for Push ******************//
-//****************** Start of relevance for Push ******************//
+//****************** Start of relevance for Push if you want to go this way ******************//
+//****************** Start of relevance for Push if you want to go this way ******************//
 
-App.configurePlugin('phonegap-plugin-push', {
-  SENDER_ID: 'xxxxxxxxxxxxxxxx'
-})
+// this is not required if you don't use and override folder. Just place google-service.json in the right place.
+
 
 App.appendToConfig(`
 <platform name="android">
