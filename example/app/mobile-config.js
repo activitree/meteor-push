@@ -82,12 +82,9 @@ App.configurePlugin('cordova-plugin-googleplus', {
   'REVERSED_CLIENT_ID': 'com.googleusercontent.apps.xxxxxxxxxxxxxxxx'
 })
 
-//****************** Start of relevance for Push ******************//
-//****************** Start of relevance for Push ******************//
-
-App.configurePlugin('phonegap-plugin-push', {
-  SENDER_ID: 'xxxxxxxxxxxxxxxx'
-})
+/********************************************************************
+ * Start of relevance for Push
+ ********************************************************************/
 
 App.appendToConfig(`
 <platform name="android">
@@ -95,9 +92,9 @@ App.appendToConfig(`
 </platform>
 `)
 
-//****************** End of relevance for Push ******************//
-//****************** End of relevance for Push ******************//
-
+/********************************************************************
+ * End of relevance for Push
+ ********************************************************************/
 
 App.appendToConfig(`
 <platform name="ios">

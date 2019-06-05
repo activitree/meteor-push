@@ -13,7 +13,8 @@ Npm.depends({
 
 Cordova.depends({
   'phonegap-plugin-push': '2.2.3',
-  'cordova-plugin-device': '2.0.2'
+  'cordova-plugin-device': '2.0.2',
+  'cordova-android-support-gradle-release': '1.4.5',
 })
 
 Package.onUse(api => {
