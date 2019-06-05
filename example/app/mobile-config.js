@@ -83,14 +83,21 @@ App.configurePlugin('cordova-plugin-googleplus', {
 })
 
 /********************************************************************
- * Start of relevance for Push
+ * Start of relevance for Push.
+ *
+ * If you want to move the `google-services.json` - file outside of your repo,
+ * you can use this to move it in place during the cordova build.
+ *
+ * Otherwise you can just put it into `/cordova-build-override/platforms/android/app/google-services.json` (as in this example) as well.
+ *
+ * `src="../../../"` is your meteor project root. You can go back out further by adding more `../`'s.
  ********************************************************************/
 
-App.appendToConfig(`
-<platform name="android">
-    <resource-file target="google-services.json" src="../../../cordova-build-override/google-services.json"/>
-</platform>
-`)
+//App.appendToConfig(`
+//<platform name="android">
+//    <resource-file target="app/google-services.json" src="../../../cordova-build-override/google-services.json"/>
+//</platform>
+//`)
 
 /********************************************************************
  * End of relevance for Push
