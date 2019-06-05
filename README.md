@@ -66,78 +66,77 @@ subdirectory of this repo.
 
     app/
         .meteor/
-            local/                  Here you will have a half-complete android-build you'll want to work with.
-                                    Further down in the "Android" - section we'll explain what to do here to build the
-                                    Android app.
+            local/                              Here you will have a half-complete android-build you'll want to work with.
+                                                Further down in the "Android" - section we'll explain what to do here to build the
+                                                Android app.
+                                                
+                                                The files included here show (some build files of ) a real-world configuration of 
+                                                an android build which supposedly actually did run *at least* once in the wild :).
+            
+        client/         
+            client.js                           This is example code from a real project. It basically shows how a client app 
+                                                calls a server method which then in turn will send the push message.
+                                                
+                                                The method will be defined further down in the example. 
+            
+        cordova-build-override/                 This is a special meteor folder from which stuff will be copied into the cordova
+            platforms/                          projects after they have been created but not built. I am not an expert on that, so
+                android/                        for now just put your google-services.json - file here while building the android app.
+                    app/                        
+                        google-services.json    The Android build process will read (and maybe include it into the build?) this to
+                                                configure the Android app to receive Push notifications from your Firebase account.
                                     
-                                    The files included here show (some build files of ) a real-world configuration of 
-                                    an android build which supposedly actually did run *at least* once in the wild :).
-
-        client/
-            client.js               This is example code from a real project. It basically shows how a client app 
-                                    calls a server method which then in turn will send the push message.
-                                    
-                                    The method will be defined further down in the example. 
-             
-        cordova-build-override/     This is a special meteor folder from which stuff will be copied into the cordova 
-            google-services.json    projects after they have been created but not built. I am not an expert on that, so 
-                                    for now just put your google-services.json - file here while building the android app.
-                                    
-                                    The Android build process will read (and maybe include it into the build?) this to
-                                    configure the Android app to receive Push notifications from your Firebast account.
-                                    
-                                    And that's really what it's all about in the end, isn't it? :)   
-                                     
-        lib/
-            push_methods.js         This defines the method which actually sends the Push from the server to the correct
-                                    users' device. Take what you need and run :)
-                                    
-        server/
-            private/
-                serviceAccount.js   This is the serviceAccount - data from your google firebase account. It is included
-                                    by `/startup/server.js` so you could put it anywhere you like.
-                                    
-                                    *NOTE:* I would recommend not commiting this file to your repository, ever, in case
-                                    somebody else might get access to it in the future and/or you use a public version
-                                    control service... I myself put this in my Meteor Settings and set them using a 
-                                    environment variable on the server. For nginx: \\n does work to add newlines to 
-                                    strings / encryption keys in the nginx config... 
-                                    
-                                    Anyways. You need to be able to supply this data to the server init call later on.
-                
-        startup/
-            client/
-                index.js            Put your client startup code here. This'll run on startup on your cordova app once.
-                                    It'll allow us to store the devices push token in the server - database once
-                                    the device finds it as well as associate it with a user.
-                                    
-                                    Furthermore you can set up defaults for the sending of... Push local notifications here?
-                                    
-                                    I don't know what it's for to be honest, I don't think it's used right now... (@Paul?)
-                                    
-                                    ANYWAYS initialize your clients like this! :)
-                                    
-            server/
-                index.js            Here you provide the push package with all your precious secret information - 
-                                    AKA push keys & auth certificates for iOS + Android - and you can set defaults here
-                                    for your notifications as well as configure the package some more.
-                                    
-                                    In the future we hope to provide further valuable info about what the params do, but
-                                    feel free to cross-reference the plugin and [phonegap-plugin-push](https://github.com/phonegap/phonegap-plugin-push)
-                                    and let us know what you find out. :)
-                                                    
-        mobile-config.js            This, as you probably already know, contains build information for your mobile builds.
+                                                And that's really what it's all about in the end, isn't it? :)
+                                                
+                                                The whole path to copy+paste / check: /cordova-build-override/platforms/android/app/google-services.json .     
+                                                 
+        lib/            
+            push_methods.js                     This defines the method which actually sends the Push from the server to the correct
+                                                users' device. Take what you need and run :)
+                                                
+        server/         
+            private/            
+                serviceAccount.js               This is the serviceAccount - data from your google firebase account. It is included
+                                                by `/startup/server.js` so you could put it anywhere you like.
+                                                
+                                                *NOTE:* I would recommend not commiting this file to your repository, ever, in case
+                                                somebody else might get access to it in the future and/or you use a public version
+                                                control service... I myself put this in my Meteor Settings and set them using a 
+                                                environment variable on the server. For nginx: \\n does work to add newlines to 
+                                                strings / encryption keys in the nginx config... 
+                                                
+                                                Anyways. You need to be able to supply this data to the server init call later on.
+                            
+        startup/            
+            client/         
+                index.js                        Put your client startup code here. This'll run on startup on your cordova app once.
+                                                It'll allow us to store the devices push token in the server - database once
+                                                the device finds it as well as associate it with a user.
+                                                
+                                                Furthermore you can set up defaults for the sending of... Push local notifications here?
+                                                
+                                                I don't know what it's for to be honest, I don't think it's used right now... (@Paul?)
+                                                
+                                                ANYWAYS initialize your clients like this! :)
+                                                
+            server/         
+                index.js                        Here you provide the push package with all your precious secret information - 
+                                                AKA push keys & auth certificates for iOS + Android - and you can set defaults here
+                                                for your notifications as well as configure the package some more.
+                                                
+                                                In the future we hope to provide further valuable info about what the params do, but
+                                                feel free to cross-reference the plugin and [phonegap-plugin-push](https://github.com/phonegap/phonegap-plugin-push)
+                                                and let us know what you find out. :)
+                                                                
+        mobile-config.js                        This, as you probably already know, contains build information for your mobile builds.
+                    
+                                                The only thing we do here is *if* you don't want to include the google-services.json - file inside your project,
+                                                you can copy the google-services.json - file from a folder outside your project directory into the Android build directory
+                                                using the snippet we provide you with here.
+                                                
+        scripts_meteor_package_json             This are examples you can use in your own apps' package.json - file to make
+                                                building the apps easier for yourself.
         
-                                    The only thing we do here is to copy the google-services.json - file from the 
-                                    `cordova-build-override` - folder (see above) into the Android build directory.
-                                    
-                                    As I said above I am not sure how well this works right now, as we find out more 
-                                    we'll continue improving this package + the docs... :) Nice of us, eh? :)
-                                    
-        
-        scripts_meteor_package_json     This are examples you can use in your own apps' package.json - file to make
-                                        building the apps easier for yourself.
-
 
 
 ##
