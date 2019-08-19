@@ -78,13 +78,13 @@ Custom Meteor:
 * cordova-plugin-device 2.0.2
 
 ## To do
-* At the time of this input, raix:eventstate@0.0.4 is expected to have an update. Raix is pending a push to Atmosphere.
 * Add notifications for browser. This module has been completely removed when this package was born out of RAIX:Push. So ... need to put back browser notifications. Also check the compatibility/integration with PWA workers.
 * Review code quality and logic. The author (myself) is not an expert but ... working on it.
 * Add testing.
 * Get a partner or more for the branch and merge administration.
 * https://github.com/node-apn/node-apn - the "APN" node packge used here, lacks maintenace, possibly fork and update dependencies.
-* The last Production test was done with phonegap-plugin-push@2.1.2. We were stuck here due to cordova-adnroid@6.4.0 built in Meteor.Meteor 1.8.1 has moved to cordova-android 7.1+ so we can access the latest phonegap-plugin-push@2.2.3
+* The last Production test was done with phonegap-plugin-push@2.1.2. We were stuck here due to cordova-adnroid@6.4.0 built in Meteor.Meteor 1.8.1 has moved to cordova-android 7.1+ so we can access the latest phonegap-plugin-push@2.2.3.
+Presently still set on 2.1.2 for compatibility with Meteor < 1.8.1.
 
 
 
