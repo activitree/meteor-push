@@ -62,9 +62,8 @@ classpath 'com.android.tools.build:gradle:3.3.2'
 ```
 
 ## About:
-The coded is linted with Standard.
+The code is linted with Standard.
 This is a re-write of RAIX:PUSH.
-The coded is linted with Standard.
 
 This was tested with:
 Custom Meteor:
@@ -72,7 +71,7 @@ Custom Meteor:
 * cordova 8.1.1
 * cordova-ios 4.5.5
 * cordova-android 7.1.1, cordova-android 7.1.4
-* node-apn 2.2.0
+* node-apn 2.2.0 (3.0.0-alpha1 eliminates a memory leak related to event emitting)
 * firebase-admin 6.0.0, firebase-admin 7.2.0
 * phonegap-plugin-push 2.1.2, phonegap-plugin-push 2.2.3 
 * cordova-plugin-device 2.0.2
