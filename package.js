@@ -20,7 +20,7 @@ Package.onUse(api => {
   api.versionsFrom('1.6')
   api.use(['ecmascript'])
 
-  api.use(['tracker'], 'web.cordova')
+  api.use(['tracker'], ['web.browser', 'web.cordova'])
   api.use(['accounts-base'], ['web.cordova', 'server'], { weak: true })
 
   api.use([
@@ -38,5 +38,6 @@ Package.onUse(api => {
   api.addFiles('lib/server/server.js', 'server')
 
   api.mainModule('lib/client/cordova.js', ['web.cordova'])
+  api.mainModule('lib/client/web.js', ['web.browser'])
   api.mainModule('lib/server/push.js', ['server'])
 })
