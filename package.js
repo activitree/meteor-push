@@ -8,11 +8,11 @@ Package.describe({
 
 Npm.depends({
   'apn': '3.0.0-alpha1',
-  'firebase-admin': '8.3.0'
+  'firebase-admin': '8.6.1'
 })
 
 Cordova.depends({
-  'phonegap-plugin-push': '2.1.2',
+  'phonegap-plugin-push': '2.3.0',
   'cordova-plugin-device': '2.0.3'
 })
 
