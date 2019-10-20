@@ -15,8 +15,7 @@ The Android and IOS ware succesfuly built with Meteor. I mention this because be
 
 
 # WebPush and PWA
-First read this article to understand the concept and workflow: https://webengage.com/blog/web-push-notification-guide/
-
+First read this article to understand the concept and workflow: https://webengage.com/blog/web-push-notification-guide/ or https://www.airship.com/resources/explainer/web-push-notifications-explained/
 
 
 # IOS
