@@ -17,6 +17,11 @@ The Android and IOS ware succesfuly built with Meteor. I mention this because be
 # WebPush and PWA
 First read this article to understand the concept and workflow: https://webengage.com/blog/web-push-notification-guide/ or https://www.airship.com/resources/explainer/web-push-notifications-explained/
 
+Copy the worker file in the Example /public to your public folder. This needs to be available at https://www.your_address.com/firebase-messaging-sw.js. This worker is responsible for handling backgroud messages.
+
+You can import two hooks: ``` import { webPushSubscribe, webPushUnsubscribe } from 'meteor/activitree:push' ```
+Find the example in example/handle_WebPush_In_UX/Notification.js (React version)
+
 
 # IOS
 After IOS Build, go to /app/.meteor/local/cordova-build/platforms/ios and (if you use Terminal) run 'pod install'. After this, in XCode, update the IOS version for each and every pod installed.
