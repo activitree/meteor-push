@@ -109,6 +109,9 @@ In StudioBuilder.js find this part of the code:
 In last file /android/build.gradle we change the following line to actual version. 
 classpath 'com.android.tools.build:gradle:3.3.2'
 ```
+You can also set your prefered Gradle version by running the next command before runnign Meteor:
+``` export CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=https\://services.gradle.org/distributions/gradle-4.10.1-all.zip```
+
 
 ## About:
 The code is linted with Standard.
