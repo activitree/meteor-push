@@ -2,7 +2,6 @@
 // This method is the generalized method for both Client and Server. In the client folder you can find an example of
 // how this method is being called.
 
-import { Meteor } from 'meteor/meteor'
 import { ValidatedMethod } from 'meteor/mdg:validated-method'
 import { Push } from 'meteor/activitree:push'
 import SimpleSchema from 'simpl-schema'
@@ -12,8 +11,11 @@ export const userPushNotification = new ValidatedMethod({
   validate: new SimpleSchema({
     title: String,
     body: String,
-    badge: Number,
-    userId: String,
+    imageUrl: { type: String, optional: true },
+    badge: { type: Number, optional: true },
+    userId: { type: String, optional: true },
+    userIds: { type: Array, optional: true },
+    'userIds.$': String,
     topic: { type: String, optional: true },
     sound: { type: String, optional: true },
     icon: { type: String, optional: true },
@@ -24,68 +26,31 @@ export const userPushNotification = new ValidatedMethod({
     category: { type: String, optional: true },
     threadId: { type: String, optional: true },
     delayUntil: { type: Date, optional: true },
-    token: { type: String, optional: true },
+    token: { type: Object, blackbox: true, optional: true },
     tokens: { type: Array, optional: true },
-    'tokens.$': { type: String, optional: true },
+    'tokens.$': { type: Object, blackbox: true, optional: true },
+    tokenId: { type: String, optional: true },
+    tokenIds: { type: Array, optional: true },
+    'tokenIds.$': String,
     from: { type: String, optional: true },
     data: { type: Object, blackbox: true, optional: true },
+    iosData: { type: Object, blackbox: true, optional: true },
+    androidData: { type: Object, blackbox: true, optional: true }, // Android data ca only take string values do further validation here
+    webData: { type: Object, blackbox: true, optional: true },
     action: { type: String, optional: true }
   }).validator(),
-  run ({
-         title,
-         body,
-         badge,
-         userId,
-         topic,
-         sound,
-         icon,
-         color,
-         vibrate,
-         contentAvailable,
-         launchImage,
-         category,
-         threadId,
-         delayUntil,
-         token,
-         tokens,
-         from,
-         data,
-         action
-       }) {
-    if (userId === '' || userId === undefined || userId === 'undefined') {
-      throw new Meteor.Error(404, 'No userId was set, userId was ' + userId)
-    }
+  run (notification) {
+    // Add your Method Level security preference here.
+    // if (!this.userId) {
+    //   throw new Meteor.Error(404, 'No userId was set, userId was ' + userId)
+    // }
 
     // topic in IOS and Android have different behaviors. In IOS it must be set as the app id,
     // in Android a notification can be sent to a topic (to its subscribers)
 
-    if (this.userId) {
-      const notification = {
-        title,
-        body,
-        badge,
-        userId,
-        notId: Math.round(new Date().getTime() / 1000)
-      }
+    Object.keys(notification).map(key => (notification[key] === null || notification[key] === undefined) && delete notification[key])
 
-      if (topic) { notification.topic = topic }
-      if (icon) { notification.icon = icon }
-      if (color) { notification.color = color }
-      if (sound) { notification.sound = sound }
-      if (contentAvailable) { notification.contentAvailable = contentAvailable }
-      if (launchImage) { notification.launchImage = launchImage }
-      if (category) { notification.category = category }
-      if (threadId) { notification.threadId = threadId }
-      if (delayUntil) { notification.delayUntil = delayUntil }
-      if (token) { notification.token = token }
-      if (tokens) { notification.tokens = tokens }
-      if (from) { notification.from = from }
-      if (vibrate) { notification.vibrate = vibrate }
-      if (data) { notification.data = data }
-      if (action) { notification.action = action }
-
-      Push.send(notification)
-    }
+    Push.send(notification)
   }
 })
 
@@ -101,7 +66,7 @@ export const sendPushNotificationBadge = new ValidatedMethod({
       title: '',
       text: '',
       badge: count,
-      query: { userId }
+      userId
     })
   }
 })

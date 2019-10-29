@@ -1,8 +1,10 @@
 import { Meteor } from 'meteor/meteor'
-import { CordovaPush } from 'meteor/activitree:push'
+import WebPush, { CordovaPush } from 'meteor/activitree:push'
 
 Meteor.startup(() => {
-  if (Meteor.isCordova) { // all cases after Push for Web is implemented
+  if (Meteor.isCordova) {
+    // Check cordova-push-plugin for all options supported.
+    // The configuration object is used to initialize Cordova Push on the device.
     CordovaPush.Configure({
       appName: 'YourAppName',
       android: {
@@ -14,6 +16,10 @@ Meteor.startup(() => {
         icon: 'statusbaricon',
         iconColor: '#337FAE',
         forceShow: true
+        // clearBadge: false,
+        // topics: ['messages', 'notifications'],
+        // messageKey: 'message',
+        // titleKey: 'title'
         // topics: ['messages', 'notifications']
       },
       ios: {
@@ -24,34 +30,20 @@ Meteor.startup(() => {
         topic: 'com.your_app_id' // your IOS app id.
       }
     })
-  }
-
-  // Configure Listeners
-
-  /*
-    CordovaPush.on('startup', notif => {
-      // read whatever payload from the notification and route accordingly
-      Example
-      Sending notification:
-        Push.send({
-          from: 'main',
-          title: title,
-          text: text,
-          query: {userId: userId},
-          payload: { gotoView: 'thread', threadId: threadId }
-        })
-      Handling notification:
-        var handlePushPayload = function(payload) {
-          if (!payload) return;
-          if (payload.gotoView === 'thread') {
-            // Do something within your framework
-          }
-        };
-
-      // Called when message received on startup (cold+warm)
-      Push.addListener('startup', function(notification) {
-        handlePushPayload(notification.payload);
-      })
+  } else {
+    // Perhaps it is best to get this configuration data via Meteor Settings or Environment Variables.
+    WebPush.Configure({
+      appName: 'Activitree', // required
+      firebase: {
+        apiKey: '________',
+        authDomain: '_______',
+        databaseURL: '________________',
+        projectId: '________________',
+        storageBucket: '______________',
+        messagingSenderId: '_________________',
+        appId: '_______________',
+      },
+      publicVapidKey: '____________'
     })
-    */
+  }
 })
