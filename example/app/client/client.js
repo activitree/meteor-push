@@ -3,8 +3,6 @@
 import { Meteor } from 'meteor/meteor'
 import { ValidatedMethod } from 'meteor/mdg:validated-method'
 import SimpleSchema from 'simpl-schema'
-// import PostLikes from '../posts likes collection'
-// import Posts from '../ posts Collection'
 
 import { insertNotificationMethod } from '../notifications/methods' // inserts a Notification in Mongo for the use in UX
 
@@ -26,7 +24,7 @@ export const likePost = new ValidatedMethod({
 
       insertNotificationMethod.call({
         /*
-        // this is just sample code as existing in a live project. Is given here just for demo
+        // this is just sample code as existing in a live project. It has been provided here as an example.
         userId: someId,
         source: 'POST_LIKE',
         whoUrl: userSlug,
