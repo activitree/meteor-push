@@ -7,7 +7,6 @@ Package.describe({
 })
 
 Npm.depends({
-  apn: '3.0.0-alpha1',
   'firebase-admin': '8.6.1',
   firebase: '7.2.1'
 })
@@ -35,10 +34,10 @@ Package.onUse(api => {
   api.use('mongo', 'server')
 
   // API's
-  api.addFiles('lib/server/push.api.js', 'server')
-  api.addFiles('lib/server/server.js', 'server')
+  api.addFiles('lib/server/pushToDB.js', 'server')
+  api.addFiles('lib/server/internalMethods.js', 'server')
 
   api.mainModule('lib/client/cordova.js', ['web.cordova'])
   api.mainModule('lib/client/web.js', ['web.browser'])
-  api.mainModule('lib/server/push.js', ['server'])
+  api.mainModule('lib/server/pushToDevice.js', ['server'])
 })
