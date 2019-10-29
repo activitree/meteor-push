@@ -4,13 +4,16 @@
 If you are coming from RAIX:Push or from V1 of this package please make sure you update the following things:
 * Client startup configuration file
 * Server startup configuration file
-* Migrate your IOS tokens from APN to FCM.
+* Be familiar with the cordova-push-plugin: https://github.com/phonegap/phonegap-plugin-push
+* Migrate your IOS tokens from APN to FCM (https://www.thepolyglotdeveloper.com/2017/06/apns-tokens-fcm-tokens-simple-http/).
 You can use the IOS token tester provided by https://www.activitree.com here: https://github.com/activitree/NODE-APN-Notifications-Tester
+* The Firebase API in use: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages. Most of the API is implemented/adapted. If there is anything extra you need, open an issue and ask a friend to send a commit.
+In order to run IOS via FCM, you need to configure the Firebase Project to include Apple APN security certificate. All details here: https://firebase.google.com/docs/cloud-messaging/ios/certs. If you are coming from V1, you no longer need to stor the .p8 certificate on your Meteor server, don't forget to delete it.
 
 Under the hood:
 * Firebase-Admin Node SDK used server side for sending messages
 * cordova-push-plugin: handles mobile platforms
-* Firebase handles Web.
+* Firebase handles configuration of Web/PWA clients.
 
 # Main logic:
   ## Server:
@@ -44,6 +47,10 @@ The Android and IOS ware succesfuly built with Meteor. I mention this because be
 
 # WebPush and PWA
 First read this article to understand the concept and workflow: https://webengage.com/blog/web-push-notification-guide/ or https://www.airship.com/resources/explainer/web-push-notifications-explained/
+
+Copy the worker file in the Example /public to your public folder. This needs to be available at https://www.your_address.com/firebase-messaging-sw.js. This worker is responsible for handling backgroud messages.
+
+You can import two hooks: import { webPushSubscribe, webPushUnsubscribe } from 'meteor/activitree:push' Find the example in example/handle_WebPush_In_UX/Notification.js (React version). The method used for sending the message is at imports/api/collection/notifications/methods.js
 
 
 # IOS
