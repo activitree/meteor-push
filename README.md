@@ -118,6 +118,8 @@ You can also set your prefered Gradle version by running the next command before
 ## About:
 The code is linted with Standard.
 
+If you are looking for premium support for this implementation or particular features, please drop a message.
+
 This was tested with:
 Custom Meteor:
 * Meteor 1.7.0.5, Meteor 1.8.0.1, Meteor 1.8.0.2, Meteor 1.8.1
