@@ -14,16 +14,16 @@ Under the hood:
 
 # Main logic:
   ## Server:
-  Use the Push configurator in the Meteor Startup to have everything set, as well as setting defaults for various notification   object keys. (E.g TTL, icon, color, launch screen for IOS, etc.
-  internalMethods.js: all Meteor methods used by the package
-  notification.js. This is where the actual notification is being constructed before passing to the sender
-  pushToDb.js Does all the Push - Meteor - MongoDB work, saving a notification queue which is then being processed by the sender.
-  pushToDevice.js Picks up notifications from MongoDB and sends them out via Firebase-Admin.
+  Use the Push configurator in the Meteor Startup to have everything set, as well as setting defaults for various notification   object keys. (E.g TTL, icon, color, launch screen for IOS, etc).
+  * internalMethods.js: all Meteor methods used by the package
+  * notification.js. This is where the actual notification is being constructed before passing to the sender
+  * pushToDb.js Does all the Push - Meteor - MongoDB work, saving a notification queue which is then being processed by the sender.
+  * pushToDevice.js Picks up notifications from MongoDB and sends them out via Firebase-Admin.
 
   ## Client:
   Use the Push configurator to set defaults for Cordova and Web Push.
-  web.js Contains the arhitecture for registering a browser/PWA (get a token, save to browser storage for browser UX use, save   the token in MongoDB. Also contains the necessary hooks for developer's convenience.
-  cordova.js Contains the arhitecture for registering a Cordova App (get a token, save to device storage for App UX use, save   the token in MongoDB)
+  * web.js Contains the arhitecture for registering a browser/PWA (get a token, save to browser storage for browser UX use,     save the token in MongoDB. Also contains the necessary hooks for developer's convenience.
+  * cordova.js Contains the arhitecture for registering a Cordova App (get a token, save to device storage for App UX use,       save the token in MongoDB)
   
 Same as the V1, the repo contains an Example folder with files at the expected location. This is not runnable Meteor project, and it is just intended to offer some convenience in understanding where things go. 
  
