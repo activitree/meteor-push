@@ -1,6 +1,33 @@
-# Meteor Push Notifications with APN (IOS) and Firebase Admin for Android
-This can be branched out with separate versions to run both IOS and Android via Firebase Admin.
+# Meteor Push Notifications with Firebase-Admin for IOS, Android and Web/PWA (This is in production with https://www.activitree.com
 
+If you are coming from RAIX:Push or from V1 of this package please make sure you update the following things:
+* Client startup configuration file
+* Server startup configuration file
+* Migrate your IOS tokens from APN to FCM.
+You can use the IOS token tester provided by https://www.activitree.com here: https://github.com/activitree/NODE-APN-Notifications-Tester
+
+Under the hood:
+* Firebase-Admin Node SDK used server side for sending messages
+* cordova-push-plugin: handles mobile platforms
+* Firebase handles Web.
+
+# Main logic:
+  ## Server:
+  Use the Push configurator in the Meteor Startup to have everything set, as well as setting defaults for various notification   object keys. (E.g TTL, icon, color, launch screen for IOS, etc.
+  internalMethods.js: all Meteor methods used by the package
+  notification.js. This is where the actual notification is being constructed before passing to the sender
+  pushToDb.js Does all the Push - Meteor - MongoDB work, saving a notification queue which is then being processed by the sender.
+  pushToDevice.js Picks up notifications from MongoDB and sends them out via Firebase-Admin.
+
+  ## Client:
+  Use the Push configurator to set defaults for Cordova and Web Push.
+  web.js Contains the arhitecture for registering a browser/PWA (get a token, save to browser storage for browser UX use, save   the token in MongoDB. Also contains the necessary hooks for developer's convenience.
+  cordova.js Contains the arhitecture for registering a Cordova App (get a token, save to device storage for App UX use, save   the token in MongoDB)
+  
+Same as the V1, the repo contains an Example folder with files at the expected location. This is not runnable Meteor project, and it is just intended to offer some convenience in understanding where things go. 
+ 
+ 
+ 
 ## Prerequisites:
 
 * Create an Apple p8 certificate: https://developer.clevertap.com/docs/how-to-create-an-ios-apns-auth-key
@@ -10,11 +37,13 @@ Or visit here: https://console.firebase.google.com/project/**YOUR_PROJECT**/sett
 
 meteor add activitree:push
 
-
-(Will add everything here and then sort out the information)
-
 All settings suggested are what worked in testing but you are free to change everything indeed.
 The Android and IOS ware succesfuly built with Meteor. I mention this because before 1.8.1 I could only build Android with Android Studio.
+
+
+# WebPush and PWA
+First read this article to understand the concept and workflow: https://webengage.com/blog/web-push-notification-guide/ or https://www.airship.com/resources/explainer/web-push-notifications-explained/
+
 
 # IOS
 After IOS Build, go to /app/.meteor/local/cordova-build/platforms/ios and (if you use Terminal) run 'pod install'. After this, in XCode, update the IOS version for each and every pod installed.
