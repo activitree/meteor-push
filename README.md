@@ -1,4 +1,5 @@
-# Meteor Push Notifications with Firebase-Admin for IOS, Android and Web/PWA (This is in production with https://www.activitree.com
+# Meteor Push Notifications with Firebase-Admin for IOS, Android and Web/PWA.
+**This is running in production with https://www.activitree.com**
 
 If you are coming from RAIX:Push or from V1 of this package please make sure you update the following things:
 * Client startup configuration file
