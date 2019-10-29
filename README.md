@@ -117,7 +117,6 @@ You can also set your prefered Gradle version by running the next command before
 
 ## About:
 The code is linted with Standard.
-This is a re-write of RAIX:PUSH.
 
 This was tested with:
 Custom Meteor:
