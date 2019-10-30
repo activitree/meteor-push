@@ -2,7 +2,7 @@
 Package.describe({
   name: 'activitree:push',
   version: '2.0.4',
-  summary: 'Push notifications for APN and Firebase (FCM) (with web-push)',
+  summary: 'Push Notifications for Cordova and Web/PWA with Firebase (FCM).',
   git: 'https://github.com/activitree/meteor-push.git'
 })
 
