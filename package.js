@@ -1,7 +1,7 @@
 /* globals Package, Npm, Cordova */
 Package.describe({
   name: 'activitree:push',
-  version: '2.0.1',
+  version: '2.0.2',
   summary: 'Push notifications for APN and Firebase (FCM) (with web-push)',
   git: 'https://github.com/activitree/meteor-push.git'
 })
@@ -40,5 +40,5 @@ Package.onUse(api => {
 
   api.mainModule('lib/client/cordova.js', ['web.cordova'])
   api.mainModule('lib/client/web.js', ['web.browser'])
-  api.mainModule('lib/server/pushToDevice.js', ['server'])
+  api.mainModule('lib/server/pushToDB.js', ['server'])
 })
