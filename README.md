@@ -21,6 +21,8 @@ Under the hood:
 * cordova-push-plugin: handles mobile platforms
 * Firebase handles configuration of Web/PWA clients.
 
+Simplified development path: ....
+
 # Main logic:
   ## Server:
   Use the Push configurator in the Meteor Startup to have everything set, as well as setting defaults for various notification   object keys. (E.g TTL, icon, color, launch screen for IOS, etc).
