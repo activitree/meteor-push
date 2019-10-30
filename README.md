@@ -5,6 +5,8 @@
 
 V1 -> V2: Breaking changes. Requires conversion of Tokens from APN to FCM (for IOS) and update of client and server configurations. Methods are more complex now, with more options and we included a path for Web/PWA implementation.
 
+To continue with V1, you may fork from here: https://github.com/activitree/meteor-push/commit/45d97977c37d70d561fcdc4cd78e3af3bc910e88 and read here: https://forums.meteor.com/t/how-to-install-meteor-package-direct-from-github/1693
+
 If you are coming from RAIX:Push or from V1 of this package please make sure you update the following things:
 * Client startup configuration file
 * Server startup configuration file
