@@ -5,4 +5,4 @@
 
 meteor add activitree:push
 
-TODO
+TO DO, for now info available at: https://github.com/activitree/meteor-push/blob/master/README.md
