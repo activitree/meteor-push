@@ -3,7 +3,7 @@ import { Push } from 'meteor/activitree:push'
 // the following folder/location of your choice. It contains your android Firebase-Admin config file.
 import { serviceAccountData } from '/server/private/serviceAccount'
 
-Push.debug = true
+Push.debug = true // Turns on various console messages in the Server console.
 
 Push.Configure({
   // appName: 'Activitree',
