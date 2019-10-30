@@ -48,12 +48,14 @@ export const userPushNotification = new ValidatedMethod({
     // topic in IOS and Android have different behaviors. In IOS it must be set as the app id,
     // in Android a notification can be sent to a topic (to its subscribers)
 
+    // Doing some cleanup on useless keys of the notification object, if any.
     Object.keys(notification).map(key => (notification[key] === null || notification[key] === undefined) && delete notification[key])
 
     Push.send(notification)
   }
 })
 
+// TODO test and further develop.
 export const sendPushNotificationBadge = new ValidatedMethod({
   name: 'send.push.notification.badge',
   validate: new SimpleSchema({
@@ -64,9 +66,9 @@ export const sendPushNotificationBadge = new ValidatedMethod({
     Push.send({
       from: 'AppName',
       title: '',
-      text: '',
+      body: '',
       badge: count,
-      userId
+      userId // or userIds, token, tokenIds ... etc
     })
   }
 })

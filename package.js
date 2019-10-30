@@ -1,7 +1,7 @@
 /* globals Package, Npm, Cordova */
 Package.describe({
-  name: 'push-local',
-  version: '1.0.1',
+  name: 'activitree:push',
+  version: '2.0.0',
   summary: 'Push notifications for APN and Firebase (FCM) (with web-push)',
   git: 'https://github.com/activitree/meteor-push.git'
 })
