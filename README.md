@@ -1,4 +1,5 @@
 # Meteor Push Notifications with Firebase-Admin for IOS, Android and Web/PWA (Includes breaking changes when coming from V1).
+<image src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed." target="https://www.repostatus.org/#active" />
 **This is running in production with https://www.activitree.com**
 
 <img alt="Activitree" src="https://assets.activitree.com/images/ad_banner.jpg" width="100%">
