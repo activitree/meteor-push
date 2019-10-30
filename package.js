@@ -35,7 +35,7 @@ Package.onUse(api => {
   api.use('mongo', 'server')
 
   // API's
-  api.addFiles('lib/server/pushToDB.js', 'server')
+  api.addFiles('lib/server/pushToDevice.js', 'server')
   api.addFiles('lib/server/internalMethods.js', 'server')
 
   api.mainModule('lib/client/cordova.js', ['web.cordova'])
