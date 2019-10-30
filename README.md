@@ -1,4 +1,4 @@
-# Meteor Push Notifications with Firebase-Admin for IOS, Android and Web/PWA (Includes breaking changes).
+# Meteor Push Notifications with Firebase-Admin for IOS, Android and Web/PWA (Includes breaking changes when coming from V1).
 **This is running in production with https://www.activitree.com**
 
 <img alt="Activitree" src="https://assets.activitree.com/images/ad_banner.jpg" width="100%">
