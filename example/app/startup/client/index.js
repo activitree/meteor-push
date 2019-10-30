@@ -7,6 +7,7 @@ Meteor.startup(() => {
     // The configuration object is used to initialize Cordova Push on the device.
     CordovaPush.Configure({
       appName: 'YourAppName',
+      debug: true,
       android: {
         alert: true,
         badge: true,
@@ -34,6 +35,7 @@ Meteor.startup(() => {
     // Perhaps it is best to get this configuration data via Meteor Settings or Environment Variables.
     WebPush.Configure({
       appName: 'Activitree', // required
+      debug: true,
       firebase: {
         apiKey: '________',
         authDomain: '_______',
