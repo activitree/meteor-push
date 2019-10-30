@@ -21,7 +21,7 @@ Under the hood:
 * cordova-push-plugin: handles mobile platforms
 * Firebase handles configuration of Web/PWA clients.
 
-Simplified development path: ....
+Simplified development path: https://github.com/activitree/meteor-push/tree/master
 
 # Main logic:
   ## Server:
