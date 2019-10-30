@@ -57,6 +57,6 @@ Push.Configure({
     // ******* Web Specifics *******
     webIcon: 'https://link_to_your_logo.jpg',
     webData: null,                 // Data object targeted to the Web notification
-    webTTL: 3600 * 1000
+    webTTL: `${3600 * 1000}`       // Number of seconds as a string
   }
 })
