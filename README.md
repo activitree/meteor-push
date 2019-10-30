@@ -1,6 +1,8 @@
 # Meteor Push Notifications with Firebase-Admin for IOS, Android and Web/PWA.
 **This is running in production with https://www.activitree.com**
 
+<img alt="Activitree" src="https://assets.activitree.com/images/ad_banner.jpg" width="100%">
+
 V1 -> V2: Breaking changes. Requires conversion of Tokens from APN to FCM (for IOS) and update of client and server configurations. Methods are more complex now, with more options and we included a path for Web/PWA implementation.
 
 If you are coming from RAIX:Push or from V1 of this package please make sure you update the following things:
