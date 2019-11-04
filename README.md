@@ -39,6 +39,14 @@ Simplified development path: https://github.com/activitree/meteor-push/tree/mast
   Use the Push configurator to set defaults for Cordova and Web Push.
   * web.js Contains the arhitecture for registering a browser/PWA (get a token, save to browser storage for browser UX use,     save the token in MongoDB. Also contains the necessary hooks for developer's convenience.
   * cordova.js Contains the arhitecture for registering a Cordova App (get a token, save to device storage for App UX use,       save the token in MongoDB)
+  For cordova please find the Cordova specific listeneres here: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/API.md#pushonevent-callback
+In activitree:push, listeners are best set in client/startup using 'CordovaPush.push'. Example:
+
+```javascript
+CordovaPush.push.on('notification', data => {
+      console.log('this is my message: ', data)
+    })
+```
   
 Same as the V1, the repo contains an Example folder with files at the expected location. This is not runnable Meteor project, and it is just intended to offer some convenience in understanding where things go. 
  
