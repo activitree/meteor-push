@@ -49,8 +49,9 @@ CordovaPush.push.on('notification', data => {
 ```
   
 Same as the V1, the repo contains an Example folder with files at the expected location. This is not runnable Meteor project, and it is just intended to offer some convenience in understanding where things go.
+______________________________________
 
-For a successful processing of Android, please have all defaults set (althoug you don't have a sound file or icon etc) or sent within your notification method. Defaults are set in ```startup/server/push.js```. When Android keys are missing and debuggin is set to ```true``` you may receive this error: 'android.data must only contain string values'.
+For a successful processing of Android, please have all defaults set (althoug you might not have a sound file or icon etc) or send the keys within your notification method. Defaults are set in ```startup/server/push.js```. When Android keys are missing and debuggin is set to ```true``` you may receive this error: 'android.data must only contain string values'.
  
  
  
