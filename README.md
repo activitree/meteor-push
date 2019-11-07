@@ -48,7 +48,9 @@ CordovaPush.push.on('notification', data => {
     })
 ```
   
-Same as the V1, the repo contains an Example folder with files at the expected location. This is not runnable Meteor project, and it is just intended to offer some convenience in understanding where things go. 
+Same as the V1, the repo contains an Example folder with files at the expected location. This is not runnable Meteor project, and it is just intended to offer some convenience in understanding where things go.
+
+For a successful processing of Android, please have all defaults set (althoug you don't have a sound file or icon etc) or sent within your notification method. Defaults are set in ```startup/server/push.js```. When Android keys are missing and debuggin is set to ```true``` you may receive this error: 'android.data must only contain string values'.
  
  
  
@@ -140,10 +142,10 @@ If you are looking for premium support for this implementation or particular fea
 
 This was tested with:
 Custom Meteor:
-* Meteor 1.7.0.5, Meteor 1.8.0.1, Meteor 1.8.0.2, Meteor 1.8.1
+* Meteor 1.8.1
 * cordova 8.1.1
 * cordova-ios 4.5.5
 * cordova-android 7.1.1, cordova-android 7.1.4
-* firebase-admin: 8.6.1, firebase: 7.2.1
+* firebase-admin: 8.6.1
 * phonegap-plugin-push 2.3.0 (fixes the IOS 13 change of tokens issue)
 * cordova-plugin-device 2.0.2
