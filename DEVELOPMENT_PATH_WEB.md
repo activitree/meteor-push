@@ -15,10 +15,6 @@ meteor add activitree:push
 
 * Have the Push Global Method available. This contains all available options. Where you build the method above, you can see in this method all keys available to you: https://github.com/activitree/meteor-push/blob/master/example/app/lib/push_methods.js
 
-# PWA configuration:
-
-As above plus:
-
 Copy the worker file here: https://github.com/activitree/meteor-push/blob/master/example/app/public/firebase-messaging-sw.js to your public folder. This needs to be available at https://www.your_address.com/firebase-messaging-sw.js. This worker is responsible for handling backgroud messages. Your 'action' key in the notification object contains the URL that will be open when the notification on screen is being clicked on.
 
 
