@@ -39,9 +39,9 @@ Meteor.startup(() => {
       firebase: {
         apiKey: '________',
         authDomain: '_______',
-        databaseURL: '________________',
+        databaseURL: '________________', // not required for Web Push to work
         projectId: '________________',
-        storageBucket: '______________',
+        storageBucket: '______________', // not required for Web Push to work
         messagingSenderId: '_________________',
         appId: '_______________',
       },
