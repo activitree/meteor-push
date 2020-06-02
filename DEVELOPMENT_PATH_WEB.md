@@ -5,6 +5,11 @@
 
 meteor add activitree:push
 
+** If you are looking for a more complex implementation of a Meteor PWA with Notifications, Offline Caching and Offline experience, please visit this repo: https://github.com/activitree/Meteor-PWA-Explained
+
+As of 2.0.6, activitree:push looks for a Firebase configuration (client side) and if one is found, the package calls for an installation of `/firebase-messaging-sw.js` otherwise it will default to `sw.js`. You are expected to have both files in your `/public` folder if you plan to use Web Push notifications. Documentation here: https://github.com/activitree/Meteor-PWA-Explained/blob/master/3_Service_workers.md
+
+
 * Add your configuration in startup/client: https://github.com/activitree/meteor-push/blob/master/example/app/startup/client/index.js
 
 * Add your configuration in startup/server: https://github.com/activitree/meteor-push/blob/master/example/app/startup/server/index.js . This step requires the existence of a Firebase configuration file.
@@ -16,8 +21,6 @@ meteor add activitree:push
 * Have the Push Global Method available. This contains all available options. Where you build the method above, you can see in this method all keys available to you: https://github.com/activitree/meteor-push/blob/master/example/app/lib/push_methods.js
 
 Copy the worker file here: https://github.com/activitree/meteor-push/blob/master/example/app/public/firebase-messaging-sw.js to your public folder. This needs to be available at https://www.your_address.com/firebase-messaging-sw.js. This worker is responsible for handling backgroud messages. Your 'action' key in the notification object contains the URL that will be open when the notification on screen is being clicked on.
-
-** If you are looking for a more complex implementation of a Meteor PWA with Notifications, Offline Caching and Offline experience, please visit this repo: https://github.com/activitree/Meteor-PWA-Explained
 
 
 ***Note:***
