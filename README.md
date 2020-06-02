@@ -142,8 +142,7 @@ The code is linted with Standard.
 If you are looking for premium support for this implementation or particular features, please drop a message.
 
 This was tested with:
-Custom Meteor:
-* Meteor 1.8.1
+* Meteor 1.8.1 - 1.10.2
 * cordova 8.1.1
 * cordova-ios 4.5.5
 * cordova-android 7.1.1, cordova-android 7.1.4
