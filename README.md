@@ -20,6 +20,8 @@ You can use the IOS token tester provided by https://www.activitree.com here: ht
 * The Firebase API in use: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages. Most of the API is implemented/adapted. If there is anything extra you need, open an issue and ask a friend to send a commit.
 In order to run IOS via FCM, you need to configure the Firebase Project to include Apple APN security certificate. All details here: https://firebase.google.com/docs/cloud-messaging/ios/certs. If you are coming from V1, you no longer need to store the .p8 certificate on your Meteor server, don't forget to delete it.
 
+Firebase Javascript SDK Change log: https://firebase.google.com/support/releases
+
 Under the hood:
 * Firebase-Admin Node SDK used server side for sending messages
 * cordova-push-plugin: handles mobile platforms
