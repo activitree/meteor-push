@@ -151,3 +151,9 @@ This was tested with:
 * firebase-admin: 8.6.1
 * phonegap-plugin-push 2.3.0 (fixes the IOS 13 change of tokens issue)
 * cordova-plugin-device 2.0.2
+
+
+Google release notes for libraries used by activitree:push:
+
+https://firebase.google.com/support/release-notes/admin/node
+https://firebase.google.com/support/release-notes/js

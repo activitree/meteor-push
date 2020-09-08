@@ -1,14 +1,15 @@
 /* globals Package, Npm, Cordova */
 Package.describe({
   name: 'activitree:push',
-  version: '2.0.7',
+  version: '2.0.8',
   summary: 'Push Notifications for Cordova and Web/PWA with Firebase (FCM).',
   git: 'https://github.com/activitree/meteor-push.git'
 })
 
 Npm.depends({
-  'firebase-admin': '8.12.1',
-  firebase: '7.15.0'
+  'firebase-admin': '8.13.0',
+  firebase: '7.17.2',
+  events: '3.2.0'
 })
 
 Cordova.depends({
@@ -28,8 +29,7 @@ Package.onUse(api => {
     'check',
     'mongo',
     'ejson',
-    'random',
-    'raix:eventstate@0.0.5'
+    'random'
   ], ['client', 'server'])
 
   api.use('mongo', 'server')
