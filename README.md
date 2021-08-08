@@ -16,9 +16,9 @@ If you are coming from RAIX:Push or from V1 of this package please make sure you
 * Server startup configuration file
 * Be familiar with the cordova-push-plugin: https://github.com/phonegap/phonegap-plugin-push
 * Migrate your IOS tokens from APN to FCM (https://www.thepolyglotdeveloper.com/2017/06/apns-tokens-fcm-tokens-simple-http/).
-You can use the IOS token tester provided by https://www.activitree.com here: https://github.com/activitree/NODE-APN-Notifications-Tester
+  You can use the IOS token tester provided by https://www.activitree.com here: https://github.com/activitree/NODE-APN-Notifications-Tester
 * The Firebase API in use: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages. Most of the API is implemented/adapted. If there is anything extra you need, open an issue and ask a friend to send a commit.
-In order to run IOS via FCM, you need to configure the Firebase Project to include Apple APN security certificate. All details here: https://firebase.google.com/docs/cloud-messaging/ios/certs. If you are coming from V1, you no longer need to store the .p8 certificate on your Meteor server, don't forget to delete it.
+  In order to run IOS via FCM, you need to configure the Firebase Project to include Apple APN security certificate. All details here: https://firebase.google.com/docs/cloud-messaging/ios/certs. If you are coming from V1, you no longer need to store the .p8 certificate on your Meteor server, don't forget to delete it.
 
 Firebase Javascript SDK Change log: https://firebase.google.com/support/releases
 
@@ -29,40 +29,42 @@ Under the hood:
 
 Simplified development path: https://github.com/activitree/meteor-push/tree/master
 
-# Main logic:
-  ## Server:
-  Use the Push configurator in the Meteor Startup to have everything set, as well as setting defaults for various notification   object keys. (E.g TTL, icon, color, launch screen for IOS, etc).
-  * internalMethods.js: all Meteor methods used by the package
-  * notification.js. This is where the actual notification is being constructed before passing to the sender
-  * pushToDb.js Does all the Push - Meteor - MongoDB work, saving a notification queue which is then being processed by the sender.
-  * pushToDevice.js Picks up notifications from MongoDB and sends them out via Firebase-Admin.
+NOTE: whenever you update this Meteor Package, please check if your libraries in the web worker for web Push are up to date.(e.g. firebase-messaging-sw.js)
 
-  ## Client:
-  Use the Push configurator to set defaults for Cordova and Web Push.
-  * web.js Contains the arhitecture for registering a browser/PWA (get a token, save to browser storage for browser UX use,     save the token in MongoDB. Also contains the necessary hooks for developer's convenience.
-  * cordova.js Contains the arhitecture for registering a Cordova App (get a token, save to device storage for App UX use,       save the token in MongoDB)
+# Main logic:
+## Server:
+Use the Push configurator in the Meteor Startup to have everything set, as well as setting defaults for various notification   object keys. (E.g TTL, icon, color, launch screen for IOS, etc).
+* internalMethods.js: all Meteor methods used by the package
+* notification.js. This is where the actual notification is being constructed before passing to the sender
+* pushToDb.js Does all the Push - Meteor - MongoDB work, saving a notification queue which is then being processed by the sender.
+* pushToDevice.js Picks up notifications from MongoDB and sends them out via Firebase-Admin.
+
+## Client:
+Use the Push configurator to set defaults for Cordova and Web Push.
+* web.js Contains the arhitecture for registering a browser/PWA (get a token, save to browser storage for browser UX use,     save the token in MongoDB. Also contains the necessary hooks for developer's convenience.
+* cordova.js Contains the arhitecture for registering a Cordova App (get a token, save to device storage for App UX use,       save the token in MongoDB)
   For cordova please find the Cordova specific listeneres here: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/API.md#pushonevent-callback
-In activitree:push, listeners are best set in client/startup using 'CordovaPush.push'. Example:
+  In activitree:push, listeners are best set in client/startup using 'CordovaPush.push'. Example:
 
 ```javascript
 CordovaPush.push.on('notification', data => {
       console.log('this is my message: ', data)
     })
 ```
-  
+
 Same as the V1, the repo contains an Example folder with files at the expected location. This is not runnable Meteor project, and it is just intended to offer some convenience in understanding where things go.
 ______________________________________
 
 For a successful processing of Android, please have all defaults set (althoug you might not have a sound file or icon etc) or send the keys within your notification method. Defaults are set in ```startup/server/push.js```. When Android keys are missing and debuggin is set to ```true``` you may receive this error: 'android.data must only contain string values'.
- 
- 
- 
+
+
+
 ## Prerequisites:
 
 * Create an Apple p8 certificate: https://developer.clevertap.com/docs/how-to-create-an-ios-apns-auth-key
 * Create an Firebase project and generate a google-services.json file. The Firebase project is supposed to generate a Messaging API in Google Console.(See png files in the Example folder)
 * Get a firebase server account: https://stackoverflow.com/questions/40799258/where-can-i-get-serviceaccountcredentials-json-for-firebase-admin/40799378
-Or visit here: https://console.firebase.google.com/project/**YOUR_PROJECT**/settings/serviceaccounts/adminsdk
+  Or visit here: https://console.firebase.google.com/project/**YOUR_PROJECT**/settings/serviceaccounts/adminsdk
 
 meteor add activitree:push
 
@@ -144,11 +146,11 @@ The code is linted with Standard.
 If you are looking for premium support for this implementation or particular features, please drop a message.
 
 This was tested with:
-* Meteor 1.8.1 - 1.10.2
+* Meteor 1.8.1 - 2.3.4
 * cordova 8.1.1
 * cordova-ios 4.5.5
 * cordova-android 7.1.1, cordova-android 7.1.4
-* firebase-admin: 8.6.1
+* firebase-admin: 9.11.0
 * phonegap-plugin-push 2.3.0 (fixes the IOS 13 change of tokens issue)
 * cordova-plugin-device 2.0.2
 
