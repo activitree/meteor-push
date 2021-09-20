@@ -44,7 +44,7 @@ Push.Configure({
     priority: 'HIGH',          // Android: one of NORMAL or HIGH
     notificationPriority: 'PRIORITY_DEFAULT', // Android: one of none, or PRIORITY_MIN, PRIORITY_LOW, PRIORITY_DEFAULT, PRIORITY_HIGH, PRIORITY_MAX
     collapseKey: 1,            // String/ Integer??, Android:  A maximum of 4 different collapse keys is allowed at any given time.
-    androidData: null,           // Data object targeted to the Android notiffication
+    androidData: null,           // Data object targeted to the Android notification
     visibility: 'PRIVATE', // Android: One of 'PRIVATE', 'PUBLIC', 'SECRET'. Default is 'PRIVATE',
     // silent: false,             // Not implemented
     // sticky: false,             // Not implemented
