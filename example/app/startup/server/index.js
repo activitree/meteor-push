@@ -17,7 +17,7 @@ Push.Configure({
     sendInterval: 3000,
     keepNotifications: false,  // the following keeps the notifications in the DB
     delayUntil: null,          // Date
-    sendTimeout: 60000,        // miliseconds 60 x 1000 = 1 min
+    sendTimeout: 60000,        // milliseconds 60 x 1000 = 1 min
 
     // ******** Global Message *******
     appName: 'AppName',        // Serve it as a 'from' default for IOS notifications
@@ -37,7 +37,7 @@ Push.Configure({
     iosData: null,             // Data object targeted to the IOS notification
     // category: null,         // IOS: IOS - not in user
 
-    // ******* Android Specificas *******
+    // ******* Android Specifics *******
     icon: 'statusbaricon',     // String (name of icon for Android has to exist in app/src/res/....)
     color: '#337FAE',          // String e.g 3 rrggbb
     ttl: '86400s',             // if not set, use default max of 4 weeks
