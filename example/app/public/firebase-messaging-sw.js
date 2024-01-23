@@ -1,10 +1,31 @@
-// import firebase scripts inside service worker js script
-if (firebase && firebase.messaging && firebase.messaging.isSupported()) {
-  importScripts('https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js')
-  importScripts('https://www.gstatic.com/firebasejs/8.9.0/firebase-messaging.js')
+/* globals importScripts, firebase */
+/* eslint-env worker */
+/* eslint-env serviceworker */
+importScripts('https://www.gstatic.com/firebasejs/9.9.4/firebase-app-compat.js')
+importScripts('https://www.gstatic.com/firebasejs/9.9.4/firebase-messaging-compat.js')
 
-// This worker is being registerd by the Web component in Activitree Meteor Push - Client
+self.addEventListener('notificationclick', function (event) {
+  event.notification.close()
+  const link = event.notification?.data?.FCM_MSG?.notification?.click_action
+  event.waitUntil(
+    clients.matchAll({ type: 'window' })
+    .then(function (clientList) {
+      for (let i = 0; i < clientList.length; i++) {
+        const client = clientList[i]
+        if (client.url === '/' && 'focus' in client) {
+          return client.focus()
+        }
+      }
+      if (clients.openWindow) {
+        return clients.openWindow(link)
+      }
+    })
+    // clients.openWindow(`${self.location.origin}${action}`);
+  )
+  console.log('From click_action', { link })
+})
 
+if (firebase?.messaging?.isSupported()) {
   firebase.initializeApp({
     apiKey: 'xxxxxxx',
     authDomain: 'xxxxxxx',
@@ -12,32 +33,7 @@ if (firebase && firebase.messaging && firebase.messaging.isSupported()) {
     storageBucket: 'xxxxxxx',
     messagingSenderId: 'xxxxxxx',
     appId: 'xxxxxxx',
-    measurementId: 'xxxxxxx',
+    // measurementId: 'xxxxxxx',
   }) // get this from your Firebase project
-
-   const messaging = firebase.messaging()
-
-    /*
-    Debug: printout a received notification in console.
-    messaging.onBackgroundMessage(payload => {
-      console.log('[firebase-messaging-sw.js] Received background message ', payload)
-      // Customize notification here
-      const notificationTitle = payload.notification.title
-      const notificationOptions = {
-        body: payload.notification.body,
-        icon: payload.notification.icon,
-        image: payload.notification.image,
-        action: payload.notification.click_action || payload.fcmOptions.link
-      }
-
-      self.registration.showNotification(notificationTitle, notificationOptions)
-    })
-   */
+  const messaging = firebase.messaging()
 }
-
-self.addEventListener('notificationclick', event => {
-  if (event.action) {
-    clients.openWindow(event.action)
-  }
-  event.notification.close()
-})
