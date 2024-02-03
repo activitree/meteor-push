@@ -19,7 +19,7 @@ Cordova.depends({
 })
 
 Package.onUse(api => {
-  api.versionsFrom(['2.10.0'])
+  api.versionsFrom(['2.14', '3.0-beta.0'])
   api.use(['tracker', 'ecmascript', 'ejson'], 'client')
   // api.use(['accounts-base'], ['client', 'server'], { weak: true })
 
