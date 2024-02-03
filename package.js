@@ -1,34 +1,29 @@
 /* globals Package, Npm, Cordova */
 Package.describe({
   name: 'activitree:push',
-  version: '2.0.11',
+  version: '3.0.0-beta.0',
   summary: 'Push Notifications for Cordova and Web/PWA with Firebase (FCM).',
   git: 'https://github.com/activitree/meteor-push.git'
 })
 
 Npm.depends({
-  'firebase-admin': '9.12.0',
-  firebase: '9.1.2',
+  'firebase-admin': '11.11.0',
+  firebase: '10.4.0',
   events: '3.3.0'
 })
 
 Cordova.depends({
-  'phonegap-plugin-push': '2.3.0',
-  'cordova-plugin-device': '2.0.3'
+  '@havesource/cordova-plugin-push': 'https://github.com/havesource/cordova-plugin-push.git#86b52a7769fe80e975752f2d2db5b1abeb194802', // for IOS with SDK > 8.1.1
+  // '@havesource/cordova-plugin-push': '3.0.1', // for Android with SDK <=21.+
+  'cordova-plugin-device': '2.1.0'
 })
 
 Package.onUse(api => {
-  api.versionsFrom(['1.8', '2.3'])
-  api.use(['tracker'], ['web.browser', 'web.cordova'])
-  api.use(['accounts-base'], ['web.browser', 'web.cordova', 'server'], { weak: true })
+  api.versionsFrom(['2.10.0'])
+  api.use(['tracker', 'ecmascript', 'ejson'], 'client')
+  // api.use(['accounts-base'], ['client', 'server'], { weak: true })
 
-  api.use([
-    'ecmascript',
-    'check',
-    'mongo',
-    'ejson',
-    'random'
-  ], ['client', 'server'])
+  api.use(['ecmascript', 'check', 'mongo'], 'server')
 
   // API's
   api.addFiles('lib/server/pushToDevice.js', 'server')

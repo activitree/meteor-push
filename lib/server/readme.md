@@ -1,0 +1,5 @@
+- api.js -- Mongo DB Connection
+- internalMethods.js -- Contains methods for setting, updating, unsetting tokens for a user
+- notifications.js -- Receives a gross notifications and token as saved in DB and builds the notification objects for Android, IOS and Web and sends out via FCM
+- pushToDB.js -- Inserts a Notification in the Notifications Collection. That will be sent by the Master Push server
+- pushToDevice.js --

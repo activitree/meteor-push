@@ -5,20 +5,10 @@
 
 <img alt="Activitree" src="https://assets.activitree.com/images/logo.png" width="240px">
 
-V1 -> V2: Breaking changes. Requires conversion of Tokens from APN to FCM (for IOS) and update of client and server configurations. Methods are more complex now, with more options and we included a path for Web/PWA implementation.
 
-To continue with V1, you may fork from here: https://github.com/activitree/meteor-push/commit/45d97977c37d70d561fcdc4cd78e3af3bc910e88 and read here: https://forums.meteor.com/t/how-to-install-meteor-package-direct-from-github/1693
+The Firebase API in use: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages. Most of the API is implemented/adapted. If there is anything extra you need, open an issue and ask a friend to send a commit.
 
-# For users of Raix Push or V1 of this.
-
-If you are coming from RAIX:Push or from V1 of this package please make sure you update the following things:
-* Client startup configuration file
-* Server startup configuration file
-* Be familiar with the cordova-push-plugin: https://github.com/phonegap/phonegap-plugin-push
-* Migrate your IOS tokens from APN to FCM (https://www.thepolyglotdeveloper.com/2017/06/apns-tokens-fcm-tokens-simple-http/).
-  You can use the IOS token tester provided by https://www.activitree.com here: https://github.com/activitree/NODE-APN-Notifications-Tester
-* The Firebase API in use: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages. Most of the API is implemented/adapted. If there is anything extra you need, open an issue and ask a friend to send a commit.
-  In order to run IOS via FCM, you need to configure the Firebase Project to include Apple APN security certificate. All details here: https://firebase.google.com/docs/cloud-messaging/ios/certs. If you are coming from V1, you no longer need to store the .p8 certificate on your Meteor server, don't forget to delete it.
+In order to run IOS via FCM, you need to configure the Firebase Project to include Apple APN security certificate. All details here: https://firebase.google.com/docs/cloud-messaging/ios/certs. If you are coming from V1, you no longer need to store the .p8 certificate on your Meteor server, don't forget to delete it.
 
 Firebase Javascript SDK Change log: https://firebase.google.com/support/releases
 
@@ -39,6 +29,18 @@ Use the Push configurator in the Meteor Startup to have everything set, as well 
 * pushToDb.js Does all the Push - Meteor - MongoDB work, saving a notification queue which is then being processed by the sender.
 * pushToDevice.js Picks up notifications from MongoDB and sends them out via Firebase-Admin.
 
+## v3.0.0
+
+Uses 3 env vars:
+* MONGO_PUSH_URL - dedicated DB
+* SERVER_IS_PUSH_SAVER - if true, with existing Meter project can generate notifications and save them to DB. Has the Meteor methods to generate the Push notifications.
+* SERVER_IS_PUSH_SENDER: existing Meter project is used to process sending of notifications via Firebase.
+
+Now Push can be sent from an existing project in multiple ways for different loads:
+* using the existing DB and the existing Meteor servers
+* using existing project Meteor with a dedicated DB
+* using a dedicated Meteor server for heavy loads and for funneling notifications from multiple projects at the same domain: E.g one.domain.com, two.domain.com, three. domain.com etc.
+
 ## Client:
 Use the Push configurator to set defaults for Cordova and Web Push.
 * web.js Contains the arhitecture for registering a browser/PWA (get a token, save to browser storage for browser UX use,     save the token in MongoDB. Also contains the necessary hooks for developer's convenience.
@@ -52,7 +54,7 @@ CordovaPush.push.on('notification', data => {
     })
 ```
 
-Same as the V1, the repo contains an Example folder with files at the expected location. This is not runnable Meteor project, and it is just intended to offer some convenience in understanding where things go.
+The repo contains an Example folder with files **at the expected location**. This is not runnable Meteor project, and it is just intended to offer some convenience in understanding where things go.
 ______________________________________
 
 For a successful processing of Android, please have all defaults set (althoug you might not have a sound file or icon etc) or send the keys within your notification method. Defaults are set in ```startup/server/push.js```. When Android keys are missing and debuggin is set to ```true``` you may receive this error: 'android.data must only contain string values'.
