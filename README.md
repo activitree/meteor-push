@@ -3,7 +3,7 @@
 
 **This is running in production with https://www.activitree.com**
 
-<img alt="Activitree" src="https://assets.activitree.com/images/logo.png" width="240px">
+<img alt="Activitree" src="https://assets.activitree.com/images/actilogo.png" width="240px">
 
 
 The Firebase API in use: https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages. Most of the API is implemented/adapted. If there is anything extra you need, open an issue and ask a friend to send a commit.
